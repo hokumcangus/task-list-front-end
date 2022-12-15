@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Task from './Task';
+// import Task from './Task';
 import './TaskList.css';
 
 const TaskList = ({ tasks }) => {
@@ -11,7 +11,8 @@ const TaskList = ({ tasks }) => {
           key={task.id}
           id={task.id}
           title={task.title}
-          isComplete={task.isComplete}
+          // isComplete={task.isComplete}
+          isComplete={props.isComplete}
         />
       );
     });
@@ -20,13 +21,14 @@ const TaskList = ({ tasks }) => {
 };
 
 TaskList.propTypes = {
-  tasks: PropTypes.arrayOf(
+  tasksData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       isComplete: PropTypes.bool.isRequired,
     })
   ).isRequired,
+  isComplete: PropTypes.func.isRequired
 };
 
 export default TaskList;

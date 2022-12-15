@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Task.css';
 
 const Task = ({ id, title, isComplete }) => {
-  const [complete, setComplete] = useState(isComplete);
+  // const [complete, setComplete] = useState(isComplete);
   const buttonClass = complete ? 'tasks__item__toggle--completed' : '';
 
   return (
@@ -15,7 +15,7 @@ const Task = ({ id, title, isComplete }) => {
       >
         {title}
       </button>
-      <button className="tasks__item__remove button">x</button>
+      <button onClick={() => props.isComplete(props.id)}>x</button>
     </li>
   );
 };
